@@ -15,17 +15,18 @@
         
         /* Navigation */
         nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; }
-        nav ul { list-style: none; display: flex; }
-        nav li { margin: 0 1rem; }
-        nav a { color: #00A8CC; font-weight: 700; transition: color 0.3s; }
+        nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav li { margin: 0 0.5rem; }
+        nav a { color: #00A8CC; font-weight: 700; transition: color 0.3s; font-size: 0.9rem; }
         nav a:hover { color: #FFD700; }
-        .lang-switch { margin-left: auto; padding-right: 20px; }
-        .lang-switch button { background: none; border: none; cursor: pointer; color: #00A8CC; font-weight: 700; margin: 0 0.5rem; transition: color 0.3s; }
+        .lang-switch { margin-left: auto; padding-right: 20px; display: flex; }
+        .lang-switch button { background: none; border: none; cursor: pointer; color: #00A8CC; font-weight: 700; margin: 0 0.3rem; transition: color 0.3s; font-size: 0.9rem; }
         .lang-switch button:hover { color: #FFD700; }
         .lang-switch button.active { color: #FFD700; text-decoration: underline; }
         
         /* Hero */
-        #hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?functional-fitness') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #FFF; }
+        #hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?functional-fitness') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #FFF; padding-top: 60px; } /* Padding for nav overlap */
+        #hero .hero-content { padding-top: 60px; } /* Extra for mobile */
         #hero .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         #hero .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
         .btn { padding: 1rem 2rem; border-radius: 5px; font-weight: 700; transition: all 0.3s; display: inline-block; margin: 0.5rem; }
@@ -69,10 +70,13 @@
         
         /* Mobile */
         @media (max-width: 768px) {
+            #hero { padding-top: 100px; } /* Mehr Raum für Nav auf Mobile */
+            #hero .hero-content { padding-top: 100px; font-size: 1.2rem; }
             #hero .hero-content h1 { font-size: 2.5rem; }
-            #hero .hero-content p { font-size: 1.2rem; }
-            nav ul { flex-direction: column; }
-            nav .lang-switch { margin-left: 0; padding: 1rem 0; }
+            nav { padding: 0.5rem 0; }
+            nav ul { flex-direction: column; align-items: center; }
+            nav li { margin: 0.5rem 0; }
+            .lang-switch { margin-left: 0; padding: 0.5rem 0; flex-direction: row; justify-content: center; }
             .grid { grid-template-columns: 1fr; }
         }
         
@@ -148,7 +152,7 @@
         <div class="container">
             <h2 class="translate" data-en="About Miloš Mitrović" data-de="Über Miloš Mitrović" data-sl="O Milošu Mitroviću">About Miloš Mitrović</h2>
             <img src="Milos%20Bild.jpg" alt="Miloš Mitrović, Personal Trainer" data-alt-en="Miloš Mitrović, Personal Trainer" data-alt-de="Miloš Mitrović, Personal Trainer" data-alt-sl="Miloš Mitrović, Osebni trener">
-            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professionell: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trener v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog je miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
+            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professional: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trener v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog ist miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
         </div>
     </section>
     
