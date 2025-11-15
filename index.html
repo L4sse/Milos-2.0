@@ -14,19 +14,20 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* Navigation */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; }
-        nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
-        nav li { margin: 0 0.5rem; }
-        nav a { color: #00A8CC; font-weight: 700; transition: color 0.3s; font-size: 0.9rem; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        nav ul { list-style: none; display: flex; }
+        nav li { margin: 0 1rem; }
+        nav a { color: #00A8CC; font-weight: 700; transition: color 0.3s; }
         nav a:hover { color: #FFD700; }
-        .lang-switch { margin-left: auto; padding-right: 20px; display: flex; }
-        .lang-switch button { background: none; border: none; cursor: pointer; color: #00A8CC; font-weight: 700; margin: 0 0.3rem; transition: color 0.3s; font-size: 0.9rem; }
+        .lang-switch { display: flex; }
+        .lang-switch button { background: none; border: none; cursor: pointer; color: #00A8CC; font-weight: 700; margin: 0 0.5rem; transition: color 0.3s; }
         .lang-switch button:hover { color: #FFD700; }
         .lang-switch button.active { color: #FFD700; text-decoration: underline; }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #00A8CC; margin-right: 20px; }
+        .close-menu { display: none; }
         
         /* Hero */
-        #hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?functional-fitness') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #FFF; padding-top: 60px; } /* Padding for nav overlap */
-        #hero .hero-content { padding-top: 60px; } /* Extra for mobile */
+        #hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?functional-fitness') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #FFF; padding-top: 80px; } /* Padding for nav */
         #hero .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         #hero .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
         .btn { padding: 1rem 2rem; border-radius: 5px; font-weight: 700; transition: all 0.3s; display: inline-block; margin: 0.5rem; }
@@ -70,13 +71,13 @@
         
         /* Mobile */
         @media (max-width: 768px) {
-            #hero { padding-top: 100px; } /* Mehr Raum für Nav auf Mobile */
-            #hero .hero-content { padding-top: 100px; font-size: 1.2rem; }
-            #hero .hero-content h1 { font-size: 2.5rem; }
-            nav { padding: 0.5rem 0; }
-            nav ul { flex-direction: column; align-items: center; }
-            nav li { margin: 0.5rem 0; }
-            .lang-switch { margin-left: 0; padding: 0.5rem 0; flex-direction: row; justify-content: center; }
+            #hero { padding-top: 60px; } /* Adjusted for hamburger nav */
+            nav ul { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #FFF; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+            nav ul.active { display: flex; }
+            nav li { margin: 1rem 0; text-align: center; }
+            .hamburger { display: block; }
+            .close-menu { display: block; position: absolute; top: 10px; right: 20px; cursor: pointer; font-size: 1.5rem; color: #00A8CC; }
+            .lang-switch { margin-left: 0; justify-content: center; padding: 0.5rem 0; }
             .grid { grid-template-columns: 1fr; }
         }
         
@@ -86,7 +87,9 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <span class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
+        <ul id="nav-menu">
+            <span class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></span>
             <li><a href="#hero">Home</a></li>
             <li><a href="#benefits">Benefits</a></li>
             <li><a href="#about">About</a></li>
@@ -107,7 +110,7 @@
         <div class="hero-content container">
             <h1 class="translate" data-en="Build Strength. Restore Balance. Move Freely." data-de="Stärke aufbauen. Gleichgewicht wiederherstellen. Frei bewegen." data-sl="Zgradi moč. Obnovi ravnotežje. Prosto se gibaj.">Build Strength. Restore Balance. Move Freely.</h1>
             <p class="translate" data-en="Functional Personal Training to fix imbalances, improve posture and increase mobility. In Maribor, Graz or online." data-de="Funktionales Personal Training zur Behebung von Ungleichgewichten, Verbesserung der Haltung und Steigerung der Mobilität. In Maribor, Graz oder online." data-sl="Funkcionalni osebni trening za odpravo neravnovesij, izboljšanje drže in povečanje mobilnosti. V Mariboru, Gradcu ali na spletu.">Functional Personal Training to fix imbalances, improve posture and increase mobility. In Maribor, Graz or online.</p>
-            <a class="whatsapp-btn btn btn-primary" href="https://wa.me/38630200567?text=Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-en="Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-de="Hi%20Miloš%2C%20ich%20möchte%20einen%20Termin%20vereinbaren%20für%20Functional%20Training.%20Wann%20passt%20es%3F" data-text-sl="Zdravo%20Miloš%2C%20želim%20rezervirati%20termin%20za%20funkcionalni%20trening.%20Kdaj%20ti%20ustreza%3F"><i class="fab fa-whatsapp"></i> <span class="translate" data-en="Start your training today" data-de="Starte dein Training heute" data-sl="Začni svoj trening danes">Start your training today</span></a>
+            <a class="whatsapp-btn btn btn-primary" data-text-en="Hi Miloš, I'd like to book an appointment for Functional Training. When does it suit?" data-text-de="Hi Miloš, ich möchte einen Termin vereinbaren für Functional Training. Wann passt es?" data-text-sl="Zdravo Miloš, želim rezervirati termin za funkcionalni trening. Kdaj ti ustreza?"><i class="fab fa-whatsapp"></i> <span class="translate" data-en="Start your training today" data-de="Starte dein Training heute" data-sl="Začni svoj trening danes">Start your training today</span></a>
             <a href="#about" class="btn btn-secondary translate" data-en="Learn more" data-de="Mehr erfahren" data-sl="Več izvedi">Learn more</a>
         </div>
     </section>
@@ -143,7 +146,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <a class="whatsapp-btn btn btn-primary" href="https://wa.me/38630200567?text=Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-en="Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-de="Hi%20Miloš%2C%20ich%20möchte%20einen%20Termin%20vereinbaren%20für%20Functional%20Training.%20Wann%20passt%20es%3F" data-text-sl="Zdravo%20Miloš%2C%20želim%20rezervirati%20termin%20za%20funkcionalni%20trening.%20Kdaj%20ti%20ustreza%3F"><span class="translate" data-en="Book your first session" data-de="Buche deine erste Session" data-sl="Rezerviraj svojo prvo sejo">Book your first session</span></a>
+                <a class="whatsapp-btn btn btn-primary" data-text-en="Hi Miloš, I'd like to book an appointment for Functional Training. When does it suit?" data-text-de="Hi Miloš, ich möchte einen Termin vereinbaren für Functional Training. Wann passt es?" data-text-sl="Zdravo Miloš, želim rezervirati termin za funkcionalni trening. Kdaj ti ustreza?"><span class="translate" data-en="Book your first session" data-de="Buche deine erste Session" data-sl="Rezerviraj svojo prvo sejo">Book your first session</span></a>
             </div>
         </div>
     </section>
@@ -152,7 +155,7 @@
         <div class="container">
             <h2 class="translate" data-en="About Miloš Mitrović" data-de="Über Miloš Mitrović" data-sl="O Milošu Mitroviću">About Miloš Mitrović</h2>
             <img src="Milos%20Bild.jpg" alt="Miloš Mitrović, Personal Trainer" data-alt-en="Miloš Mitrović, Personal Trainer" data-alt-de="Miloš Mitrović, Personal Trainer" data-alt-sl="Miloš Mitrović, Osebni trener">
-            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professional: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trener v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog ist miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
+            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professionell: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trener v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog ist miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
         </div>
     </section>
     
@@ -208,7 +211,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <a class="whatsapp-btn btn btn-primary" href="https://wa.me/38630200567?text=Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-en="Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-de="Hi%20Miloš%2C%20ich%20möchte%20einen%20Termin%20vereinbaren%20für%20Functional%20Training.%20Wann%20passt%20es%3F" data-text-sl="Zdravo%20Miloš%2C%20želim%20rezervirati%20termin%20za%20funkcionalni%20trening.%20Kdaj%20ti%20ustreza%3F"><span class="translate" data-en="Get Started Online" data-de="Online starten" data-sl="Začni na spletu">Get Started Online</span></a>
+                <a class="whatsapp-btn btn btn-primary" data-text-en="Hi Miloš, I'd like to book an appointment for Functional Training. When does it suit?" data-text-de="Hi Miloš, ich möchte einen Termin vereinbaren für Functional Training. Wann passt es?" data-text-sl="Zdravo Miloš, želim rezervirati termin za funkcionalni trening. Kdaj ti ustreza?"><span class="translate" data-en="Get Started Online" data-de="Online starten" data-sl="Začni na spletu">Get Started Online</span></a>
             </div>
         </div>
     </section>
@@ -235,69 +238,4 @@
             </div>
             <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem;" class="translate" data-en="All programs are customized. Start with a free consultation via WhatsApp." data-de="Alle Programme sind maßgeschneidert. Starte mit einer kostenlosen Beratung per WhatsApp." data-sl="Vsi programi so prilagojeni. Začni z brezplačnim posvetom prek WhatsAppa.">All programs are customized. Start with a free consultation via WhatsApp.</p>
             <div style="text-align: center; margin-top: 2rem;">
-                <a class="whatsapp-btn btn btn-primary" href="https://wa.me/38630200567?text=Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-en="Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-de="Hi%20Miloš%2C%20ich%20möchte%20einen%20Termin%20vereinbaren%20für%20Functional%20Training.%20Wann%20passt%20es%3F" data-text-sl="Zdravo%20Miloš%2C%20želim%20rezervirati%20termin%20za%20funkcionalni%20trening.%20Kdaj%20ti%20ustreza%3F"><span class="translate" data-en="Request Custom Plan" data-de="Custom Plan anfragen" data-sl="Zahtevaj prilagojen načrt">Request Custom Plan</span></a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="translate" data-en="What Clients Say" data-de="Was Kunden sagen" data-sl="Kaj pravijo stranke">What Clients Say</h2>
-            <div class="grid">
-                <div class="card">
-                    <p class="translate" data-en="After 4 weeks, less neck pain and better posture – finally pain-free learning!" data-de="Nach 4 Wochen weniger Nackenschmerzen und bessere Haltung – endlich schmerzfrei lernen!" data-sl="Po 4 tednih manj bolečin v vratu in boljša drža – končno učenje brez bolečin!">"After 4 weeks, less neck pain and better posture – finally pain-free learning!"</p>
-                    <cite class="translate" data-en="– Anna, 28, Student" data-de="– Anna, 28, Studentin" data-sl="– Anna, 28, Študentka">– Anna, 28, Student</cite>
-                </div>
-                <div class="card">
-                    <p class="translate" data-en="Miloš fixed my imbalances. More energy in everyday life, without gym drama." data-de="Miloš hat meine Imbalancen gefixt. Mehr Energie im Alltag, ohne Gym-Drama." data-sl="Miloš je popravil moja neravnovesja. Več energije v vsakdanu, brez drama v telovadnici.">Miloš fixed my imbalances. More energy in everyday life, without gym drama.</p>
-                    <cite class="translate" data-en="– Tom, 35, Professional" data-de="– Tom, 35, Berufstätiger" data-sl="– Tom, 35, Zaposleni">– Tom, 35, Professional</cite>
-                </div>
-                <div class="card">
-                    <p class="translate" data-en="Online coaching gave me back mobility. Calm, effective, transformative." data-de="Online-Coaching hat mir Mobilität zurückgegeben. Ruhig, effektiv, transformierend." data-sl="Spletni coaching mi je vrnil mobilnost. Miren, učinkovit, transformacijski.">Online coaching gave me back mobility. Calm, effective, transformative.</p>
-                    <cite class="translate" data-en="– Sara, 42, Remote Worker" data-de="– Sara, 42, Remote Worker" data-sl="– Sara, 42, Delavka na daljavo">– Sara, 42, Remote Worker</cite>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="cta">
-        <div class="container">
-            <h2 class="translate" data-en="Ready to Start Your Transformation?" data-de="Bereit für deine Transformation?" data-sl="Pripravljen na svojo transformacijo?">Ready to Start Your Transformation?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;" class="translate" data-en="Take the first step to more strength and freedom." data-de="Nimm den ersten Schritt zu mehr Stärke und Freiheit." data-sl="Naredi prvi korak k več moči in svobodi.">Take the first step to more strength and freedom.</p>
-            <a class="whatsapp-btn btn btn-primary" href="https://wa.me/38630200567?text=Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-en="Hi%20Miloš%2C%20I'd%20like%20to%20book%20an%20appointment%20for%20Functional%20Training.%20When%20does%20it%20suit%3F" data-text-de="Hi%20Miloš%2C%20ich%20möchte%20einen%20Termin%20vereinbaren%20für%20Functional%20Training.%20Wann%20passt%20es%3F" data-text-sl="Zdravo%20Miloš%2C%20želim%20rezervirati%20termin%20za%20funkcionalni%20trening.%20Kdaj%20ti%20ustreza%3F"><i class="fab fa-whatsapp"></i> <span class="translate" data-en="WhatsApp: +386 30 200 567" data-de="WhatsApp: +386 30 200 567" data-sl="WhatsApp: +386 30 200 567">WhatsApp: +386 30 200 567</span></a>
-            <a href="mailto:mitrocare@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> <span class="translate" data-en="Email: mitrocare@gmail.com" data-de="Email: mitrocare@gmail.com" data-sl="Email: mitrocare@gmail.com">Email: mitrocare@gmail.com</span></a>
-            <a href="https://instagram.com/mitrocare" class="btn btn-primary"><i class="fab fa-instagram"></i> <span class="translate" data-en="Instagram: @mitrocare" data-de="Instagram: @mitrocare" data-sl="Instagram: @mitrocare">Instagram: @mitrocare</span></a>
-        </div>
-    </section>
-    
-    <footer style="text-align: center; padding: 1rem; background: #000; color: #FFF; font-size: 0.9rem;">
-        <p class="translate" data-en="© 2025 Miloš Mitrović | Functional Training for Life | Maribor | Graz | Online" data-de="© 2025 Miloš Mitrović | Funktionales Training fürs Leben | Maribor | Graz | Online" data-sl="© 2025 Miloš Mitrović | Funkcionalni trening za življenje | Maribor | Gradec | Online">© 2025 Miloš Mitrović | Functional Training for Life | Maribor | Graz | Online</p>
-    </footer>
-
-    <script>
-        function setLanguage(lang) {
-            localStorage.setItem('language', lang);
-            document.querySelectorAll('.translate').forEach(el => {
-                el.textContent = el.dataset[lang] || el.dataset.en;
-            });
-            document.querySelectorAll('.lang-switch button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.lang-switch button[onclick="setLanguage('${lang}')"]`).classList.add('active');
-            // Update img alt
-            document.querySelectorAll('img[data-alt-en]').forEach(img => {
-                img.alt = img.dataset[`alt-${lang}`] || img.dataset.altEn;
-            });
-            // Update WhatsApp links with language-specific message
-            document.querySelectorAll('.whatsapp-btn').forEach(btn => {
-                const message = encodeURIComponent(btn.dataset[`text-${lang}`] || btn.dataset.textEn);
-                btn.href = `https://wa.me/38630200567?text=${message}`;
-            });
-        }
-
-        // Load saved language or default to en
-        const savedLang = localStorage.getItem('language') || 'en';
-        setLanguage(savedLang);
-    </script>
-</body>
-</html>
+                <a class="whatsapp
