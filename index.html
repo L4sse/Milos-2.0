@@ -67,12 +67,13 @@
         
         /* Footer CTA */
         #cta { text-align: center; background: #00A8CC; color: #FFF; }
-        #cta .btn { background: #FFD700; color: #000; margin: 1rem; }
+        #cta .btn { background: #FFD700; color: #000; margin: 1rem; display: inline-block; }
         
         /* Mobile */
         @media (max-width: 768px) {
             #hero { padding-top: 60px; } /* Adjusted for hamburger nav */
-            nav ul { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #FFF; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+            nav { padding: 0.5rem 1rem; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 50px; left: 0; width: 100%; background: #FFF; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
             nav ul.active { display: flex; }
             nav li { margin: 1rem 0; text-align: center; }
             .hamburger { display: block; }
@@ -155,7 +156,7 @@
         <div class="container">
             <h2 class="translate" data-en="About Miloš Mitrović" data-de="Über Miloš Mitrović" data-sl="O Milošu Mitroviću">About Miloš Mitrović</h2>
             <img src="Milos%20Bild.jpg" alt="Miloš Mitrović, Personal Trainer" data-alt-en="Miloš Mitrović, Personal Trainer" data-alt-de="Miloš Mitrović, Personal Trainer" data-alt-sl="Miloš Mitrović, Osebni trener">
-            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professionell: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trener v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog ist miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
+            <p class="translate" data-en="With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together." data-de="Mit über 10 Jahren Erfahrung als Trainer im Wasser- und Polosport bringe ich Expertise aus Maribor und Graz mit. Ich kombiniere funktionales Training mit manueller Therapie für einen ganzheitlichen Ansatz. Mein Stil ist ruhig und professionell: Wir lösen Blockaden, verbessern Haltung und bauen nachhaltige Stärke auf – fernab von Bodybuilding-Hype. Lass uns zusammen deinen Körper ins Gleichgewicht bringen." data-sl="Z več kot 10 leti izkušenj kot trainer v vodnih in polo športih prinašam strokovno znanje iz Maribora in Gradca. Kombiniram funkcionalni trening z manualno terapijo za celostni pristop. Moj slog ist miren in profesionalen: Sproščamo blokade, izboljšujemo držo in gradimo trajno moč – daleč od bodybuilding hypea. Skupaj spravimo tvoje telo v ravnotežje.">With over 10 years of experience as a trainer in water and polo sports, I bring expertise from Maribor and Graz. I combine functional training with manual therapy for a holistic approach. My style is calm and professional: We release blockages, improve posture, and build sustainable strength – far from bodybuilding hype. Let's bring your body into balance together.</p>
         </div>
     </section>
     
@@ -238,4 +239,72 @@
             </div>
             <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem;" class="translate" data-en="All programs are customized. Start with a free consultation via WhatsApp." data-de="Alle Programme sind maßgeschneidert. Starte mit einer kostenlosen Beratung per WhatsApp." data-sl="Vsi programi so prilagojeni. Začni z brezplačnim posvetom prek WhatsAppa.">All programs are customized. Start with a free consultation via WhatsApp.</p>
             <div style="text-align: center; margin-top: 2rem;">
-                <a class="whatsapp
+                <a class="whatsapp-btn btn btn-primary" data-text-en="Hi Miloš, I'd like to book an appointment for Functional Training. When does it suit?" data-text-de="Hi Miloš, ich möchte einen Termin vereinbaren für Functional Training. Wann passt es?" data-text-sl="Zdravo Miloš, želim rezervirati termin za funkcionalni trening. Kdaj ti ustreza?"><span class="translate" data-en="Request Custom Plan" data-de="Custom Plan anfragen" data-sl="Zahtevaj prilagojen načrt">Request Custom Plan</span></a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="translate" data-en="What Clients Say" data-de="Was Kunden sagen" data-sl="Kaj pravijo stranke">What Clients Say</h2>
+            <div class="grid">
+                <div class="card">
+                    <p class="translate" data-en="After 4 weeks, less neck pain and better posture – finally pain-free learning!" data-de="Nach 4 Wochen weniger Nackenschmerzen und bessere Haltung – endlich schmerzfrei lernen!" data-sl="Po 4 tednih manj bolečin v vratu in boljša drža – končno učenje brez bolečin!">"After 4 weeks, less neck pain and better posture – finally pain-free learning!"</p>
+                    <cite class="translate" data-en="– Anna, 28, Student" data-de="– Anna, 28, Studentin" data-sl="– Anna, 28, Študentka">– Anna, 28, Student</cite>
+                </div>
+                <div class="card">
+                    <p class="translate" data-en="Miloš fixed my imbalances. More energy in everyday life, without gym drama." data-de="Miloš hat meine Imbalancen gefixt. Mehr Energie im Alltag, ohne Gym-Drama." data-sl="Miloš je popravil moja neravnovesja. Več energije v vsakdanu, brez drama v telovadnici.">Miloš fixed my imbalances. More energy in everyday life, without gym drama.</p>
+                    <cite class="translate" data-en="– Tom, 35, Professional" data-de="– Tom, 35, Berufstätiger" data-sl="– Tom, 35, Zaposleni">– Tom, 35, Professional</cite>
+                </div>
+                <div class="card">
+                    <p class="translate" data-en="Online coaching gave me back mobility. Calm, effective, transformative." data-de="Online-Coaching hat mir Mobilität zurückgegeben. Ruhig, effektiv, transformierend." data-sl="Spletni coaching mi je vrnil mobilnost. Miren, učinkovit, transformacijski.">Online coaching gave me back mobility. Calm, effective, transformative.</p>
+                    <cite class="translate" data-en="– Sara, 42, Remote Worker" data-de="– Sara, 42, Remote Worker" data-sl="– Sara, 42, Delavka na daljavo">– Sara, 42, Remote Worker</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cta">
+        <div class="container">
+            <h2 class="translate" data-en="Ready to Start Your Transformation?" data-de="Bereit für deine Transformation?" data-sl="Pripravljen na svojo transformacijo?">Ready to Start Your Transformation?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;" class="translate" data-en="Take the first step to more strength and freedom." data-de="Nimm den ersten Schritt zu mehr Stärke und Freiheit." data-sl="Naredi prvi korak k več moči in svobodi.">Take the first step to more strength and freedom.</p>
+            <a class="whatsapp-btn btn btn-primary" data-text-en="Hi Miloš, I'd like to book an appointment for Functional Training. When does it suit?" data-text-de="Hi Miloš, ich möchte einen Termin vereinbaren für Functional Training. Wann passt es?" data-text-sl="Zdravo Miloš, želim rezervirati termin za funkcionalni trening. Kdaj ti ustreza?"><i class="fab fa-whatsapp"></i> <span class="translate" data-en="WhatsApp: +386 30 200 567" data-de="WhatsApp: +386 30 200 567" data-sl="WhatsApp: +386 30 200 567">WhatsApp: +386 30 200 567</span></a>
+            <a href="mailto:mitrocare@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> <span class="translate" data-en="Email: mitrocare@gmail.com" data-de="Email: mitrocare@gmail.com" data-sl="Email: mitrocare@gmail.com">Email: mitrocare@gmail.com</span></a>
+            <a href="https://instagram.com/mitrocare" class="btn btn-primary"><i class="fab fa-instagram"></i> <span class="translate" data-en="Instagram: @mitrocare" data-de="Instagram: @mitrocare" data-sl="Instagram: @mitrocare">Instagram: @mitrocare</span></a>
+        </div>
+    </section>
+    
+    <footer style="text-align: center; padding: 1rem; background: #000; color: #FFF; font-size: 0.9rem;">
+        <p class="translate" data-en="© 2025 Miloš Mitrović | Functional Training for Life | Maribor | Graz | Online" data-de="© 2025 Miloš Mitrović | Funktionales Training fürs Leben | Maribor | Graz | Online" data-sl="© 2025 Miloš Mitrović | Funkcionalni trening za življenje | Maribor | Gradec | Online">© 2025 Miloš Mitrović | Functional Training for Life | Maribor | Graz | Online</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('.translate').forEach(el => {
+                el.textContent = el.dataset[lang] || el.dataset.en;
+            });
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-switch button[onclick="setLanguage('${lang}')"]`).classList.add('active');
+            // Update img alt
+            document.querySelectorAll('img[data-alt-en]').forEach(img => {
+                img.alt = img.dataset[`alt-${lang}`] || img.dataset.altEn;
+            });
+            // Update WhatsApp links
+            document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+                const message = btn.dataset[`text-${lang}`] || btn.dataset.textEn;
+                btn.href = `https://wa.me/38630200567?text=${encodeURIComponent(message)}`;
+            });
+        }
+
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        const savedLang = localStorage.getItem('language') || 'en';
+        setLanguage(savedLang);
+    </script>
+</body>
+</html>
